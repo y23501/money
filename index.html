@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バイト</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- フォント -->
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet">
+    <!-- フォント -->
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- jquery -->
+
+</head>
+
+<body>
+    <header>
+        <div class="title_area">
+            <h1 id="title" class="title">バイトのおきゅうりょうけいさん </h1>
+            <img class="title_img" src="title.png" alt="">
+        </div>
+    </header>
+
+    <main>
+        <div class="logo_fadein">
+            <p><img src="title2.png" alt=""></p>
+        </div>
+
+        <div class="top">
+            <p class="explantion">あなたの今月のバイトの給料を計算します。</p>
+            <p class="explantion">使い方</p>
+        </div>
+        <div class="Howto">
+            
+            <ol class="Howto_ol">
+                <li class="Howto_li">　自給入力欄に自分の自給を入力する</li>
+                <li class="Howto_li">　自分のシフト時間を入力し隣の登録ボタンを押す</li>
+                <li class="Howto_li">　カレンダーの項目に設定した時間を入力する</li>
+                <li class="Howto_li">　入力したら設定を押す　時間を直したかったらリセットを押す</li>
+                <li class="Howto_li">　計算を押す</li>
+            </ol>
+        
+        </div>
+        <div class="money">
+            <p class="explantion">自給を入力（円）</p>
+            <input id="money" type="number" name="money_area" value="" required>
+        </div>
+        <!-- 時間設定 -->
+        <div class="time_areaA">
+            <label for="time1">A 開始時間：</label>
+            <input type="time" id="time1" name="A" value="" required>
+
+            <label for="time2">終了時間:</label>
+            <input type="time" id="time2" name="A" value="" required>
+
+            <button class="btn_color button_shadow" id="btnA" onclick="timeA()">登録</button>
+
+        </div>
+
+        <div class="time_areaB">
+            <label for="time3">B 開始時間：</label>
+            <input type="time" id="time3" name="B" value="" required>
+
+            <label for="time4">終了時間:</label>
+            <input type="time" id="time4" name="B" value="" required>
+
+            <button class="btn_color button_shadow" id="btnB" onclick="timeB()">登録</button>
+        </div>
+
+        <div class="time_areaC">
+            <label for="time5">C 開始時間：</label>
+            <input type="time" id="time5" name="C" value="" required>
+
+            <label for="time6">終了時間:</label>
+            <input type="time" id="time6" name="C" value="" required>
+
+            <button class="btn_color button_shadow" id="btnC" onclick="timeC()">登録</button>
+        </div>
+        <!-- 時間指定 -->
+        <!-- カレンダー -->
+        <div class="calender_area">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><select id="day1">
+
+                                <option value="">1日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day2">
+                                <option value="">2日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day3">
+                                <option value="">3日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day4">
+                                <option value="">4日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day5">
+                                <option value="">5日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day6">
+                                <option value="">6日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day7">
+                                <option value="">7日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td><select id="day8">
+                                <option value="">8日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day9">
+                                <option value="">9日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day10">
+                                <option value="">10日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day11">
+                                <option value="">11日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day12">
+                                <option value="">12日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day13">
+                                <option value="">13日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day14">
+                                <option value="">14日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td><select id="day15">
+                                <option value="">15日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day16">
+                                <option value="">16日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day17">
+                                <option value="">17日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day18">
+                                <option value="">18日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day19">
+                                <option value="">19日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day20">
+                                <option value="">20日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day21">
+                                <option value="">21日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td><select id="day22">
+                                <option value="">22日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day23">
+                                <option value="">23日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day24">
+                                <option value="">24日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day25">
+                                <option value="">25日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day26">
+                                <option value="">26日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day27">
+                                <option value="">27日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day28">
+                                <option value="">28日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td><select id="day29">
+                                <option value="">29日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day30">
+                                <option value="">30日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+                        <td><select id="day31">
+                                <option value="">31日のシフト</option>
+                                <option value="" class="shiftA"></option>
+                                <option value="" class="shiftB"></option>
+                                <option value="" class="shiftC"></option>
+
+                            </select></td>
+
+
+                        <td> <button class="btn_color button_shadow" onclick="updateTotalTime()">設定</button>
+                            <button class="btn_color button_shadow" onclick="reset()">リセット</button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <!-- カレンダー -->
+
+        <button id="caluculation_btn  " class="calculate_btn  btn_color button_shadow"
+            onclick="funk_money()">計算</button>
+        <!-- 計算 -->
+        <div class="calculation">
+            <div>
+                <p class="explantion">時給</p>
+                <input type="text" id="money_js" readonly>
+            </div>
+
+            <p class="symbol">　　　　　×　　　　　</p>
+            <div>
+                <p class="explantion">労働時間</p>
+                <input value="" type="number" id="time_sum" readonly>
+            </div>
+            <p class="symbol">　　　　　＝　　　　　</p>
+            <div>
+                <p class="explantion">給料</p>
+                <input type="text" value="" id="kyuuryou" readonly>
+            </div>
+
+
+        </div>
+        <!-- 計算 -->
+        <script src="main.js"></script>
+    </main>
+
+
+
+</body>
+
+</html>
